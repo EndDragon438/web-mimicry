@@ -285,7 +285,7 @@ main {
                     cursor: pointer;
                 }
                 
-                & > span:nth-child(2) {
+                & > span:nth-of-type(2) {
                     word-break: break-word;
                 }
                 
