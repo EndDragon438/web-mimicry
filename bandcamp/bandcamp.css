@@ -272,8 +272,6 @@ main {
                 
                 margin: 1em 0;
                 
-                word-break: break-word;
-                
                 & button {
                     padding: 0.2em 0.3em 0.2em 0.5em;
                     line-height: 1.5em;
@@ -285,6 +283,10 @@ main {
                     border: none;
                     
                     cursor: pointer;
+                }
+                
+                & > span:nth-child(2) {
+                    word-break: break-word;
                 }
                 
                 & .hidden {
