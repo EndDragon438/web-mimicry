@@ -237,6 +237,10 @@ main {
         gap: 2em;
         
         padding: 2em;
+        
+        & > div {
+            min-width: 0px;
+        }
     }
     
     & #track {
@@ -267,6 +271,8 @@ main {
                 gap: 1em;
                 
                 margin: 1em 0;
+                
+                word-break: break-word;
                 
                 & button {
                     padding: 0.2em 0.3em 0.2em 0.5em;
@@ -478,5 +484,38 @@ footer {
     & > div:last-of-type {
         display: flex;
         justify-content: space-between;
+    }
+}
+
+@media (width < 1800px) {
+    main {
+        max-width: 70%;
+    }
+}
+
+@media (width < 1500px) {
+    main {
+        max-width: 80%;
+    }
+}
+
+@media (width < 1300px) {
+    main {
+        max-width: 90%;
+    }
+}
+
+@media (width < 1000px) {
+    main {
+        max-width: 95%;
+    }
+    
+    main > div {
+        grid-template-columns: 100%;
+        grid-auto-rows: fit-content;
+    }
+    
+    #album {
+        order: -1;
     }
 }
