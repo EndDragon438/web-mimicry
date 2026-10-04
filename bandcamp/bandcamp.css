@@ -500,12 +500,20 @@ footer {
 }
 
 @media (width < 1300px) {
+    #search {
+        width: 15em;
+    }
+    
     main {
         max-width: 90%;
     }
 }
 
 @media (width < 1000px) {
+    #search {
+        width: 8em;
+    }
+    
     main {
         max-width: 95%;
     }
@@ -518,4 +526,6 @@ footer {
     #album {
         order: -1;
     }
+    
+    
 }
