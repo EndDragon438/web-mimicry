@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bandcamp About</title>
+        <base href="/bandcamp/">
+        <link href="/reset.css" rel="stylesheet">
+        <style>
+            main {
+                padding: 5%;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <p>
+                &emsp;ok so i talked about this a bit on some of the other pages, but this
+                is a project where i'm trying to sight-read (hahaha 'site' read) the Bandcamp
+                site and build it's layout from scratch. i started cause i've been meaning to
+                do this for fun and for practice with a buncha websites, and i looked at
+                Bandcamp's code and it was just kind of egregious (some examples below) so i
+                wanted to redo it myself cause it kinda sucked.
+            </p>
+            <p>
+                &emsp;i basically just opened up a bandcamp page (check out the album btw :3) and
+                did my best to mimic the layout without inspecting it directly (just my eyesballs).
+                i also wanted to make it better, and um. that's not very difficult i don't think.
+            </p>
+            <p>
+                &emsp;it's taken me something like 5 hours of work, 500 lines of CSS, and 700 lines
+                of HTML. quite a lot less than the actual BC page, but i didn't add in all the scripts
+                n shit to mine so it's not quite a fair comparison. still prolly more efficient, but not
+                as much as that.
+            </p>
+            <br>
+            <p>
+                while you're here, here's a list of weird and funny shit i found while working on this:
+            </p>
+            <dl>
+                <dt>Table layout</dt>
+                <dd>
+                    &emsp;this is what got me to try mimicing the Bandcamp site. BC has used a table
+                    layout since 2009, when they got started. they updated early 2010 to a layout
+                    that looks like the one we have today, album pages with the album cover on the
+                    right, player and tracklist on the left, and track info/lyrics plus downloads
+                    on hover. this layout has not fundamentally changed in the 16 years since then.
+                    there have been minor additions, but the core layout is <em>identical</em> to the
+                    one they made in 2010. they have missed 16 years of development of web standards,
+                    including the discouragement of table layouts in favour of grid (in 2015). ridiculous
+                </dd>
+                <dt>Colour scheme</dt>
+                <dd>
+                    &emsp;ok well this one's pretty simple, but BC simply has no support for light/dark
+                    colour schemes. not system/browser preferences, not user settings, nothing. this includes
+                    artist page customizations of course, there's just fuckin nothing. truly ridiculous for
+                    a site in 2026, i implemented this just off of browser preferences in like, a single 25-line
+                    CSS block. come on.
+                </dd>
+                <dt>User settings</dt>
+                <dd>
+                    &emsp;ok i didn't <em>actually</em> run into this issue while on this project, but it's
+                    annoyed me for a while so i'm putting it here anyways. the <em>entire</em> user settings page
+                    will not load without a fuckin script from Stripe. like. why is your page rendering dependent
+                    on a fuckin payment processor script.
+                </dd>
+                <dt>Profile</dt>
+                <dd>
+                    &emsp;stupid stupid stupid profile button in the header. i hate it so much. it's a typical
+                    JS-based dropdown menu, which i already have beef with but whatever. the worse part
+                    is that the menu just fucking closes if you do <em>anything</em>. you <em>cannot</em>
+                    inspect that menu, because if you click outside that stupid box it just disappears.
+                    what on earth.
+                </dd>
+                <dt>Body size</dt>
+                <dd>
+                    &emsp;through working on this project i've spent a fair bit of time inspecting the BC
+                    site (though i try to sightread when i can), and some wack ass shit is that their
+                    body element, is quite literally only the size of their header. what. yeah. that's it.
+                    all the rest of the page content, isn't actually inside the area of the body, it's
+                    only in there like, structurally (in the code). what the fuck.
+                </dd>
+                <dt>Headings</dt>
+                <dd>
+                    &emsp;there aren't any. yup.<em>zero</em> heading elements. not an <code>h</code> in sight.
+                    don't ask me, i don't know. to be honest the whole thing looks like an accessibility nightmare
+                    in there.
+                </dd>
+                <dt>Player</dt>
+                <dd>
+                    &emsp;ok i mean this is an obvious one but. Bandcamp's audio player is shit. it looks like
+                    its a custom JS player implementation (the <code>&lt;audio&gt;</code> element is baseline
+                    since 2015, so obviously they couldn't use that), and it is really just lacking. most obviously
+                    there's just no volume controls, and all music on BC is loud as fuck so goodbye to your ears
+                    (i use <a href="https://addons.mozilla.org/en-US/firefox/addon/bandcamp-player-volume-control/">an extension to add a volume control</a>
+                    so my ears are fine). basically, the baseline audio element is simply better. all it's missing
+                    is a next/last control, but like, that can just be JS, they already have the whole player JS
+                    i'm sure they don't mind.
+                </dd>
+                <dt>Mobile</dt>
+                <dd>
+                    &emsp;i feel like it's kind of needless to mention this at this point, but of course Bandcamp's layout
+                    doesn't give any consideration to mobile really. it just scales like a website from the 90s (which
+                    it pretty much is. so). they don't even have a meta viewport tag. they do actually have a seperate
+                    mobile design, which does look quite a bit newer, but still leaves some to be desired and the main
+                    layout still isn't responsive. (you also can't <em>escape</em> the mobile view, which is kind of
+                    hilarious. if it happens to u, clear cache, just recent stuff works)
+                </dd>
+            </dl>
+        </main>
+    </body>
+</html>
